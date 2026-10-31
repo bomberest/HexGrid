@@ -1,0 +1,8 @@
+{
+  "name": "Anvelop.HexGrid",
+  "rootNamespace": "Anvelop.HexGrid",
+  "references": ["Unity.Mathematics", "Unity.Collections"],
+  "allowUnsafeCode": false,
+  "autoReferenced": true,
+  "noEngineReferences": false
+}

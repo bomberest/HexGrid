@@ -1,0 +1,6 @@
+{
+  "name": "Anvelop.HexGrid.ManagedSamples",
+  "rootNamespace": "Anvelop.HexGrid.Samples",
+  "references": ["Anvelop.HexGrid", "Unity.Collections", "Unity.Mathematics"],
+  "autoReferenced": true
+}

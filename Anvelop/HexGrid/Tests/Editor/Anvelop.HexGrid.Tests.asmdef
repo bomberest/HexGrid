@@ -1,0 +1,8 @@
+{
+  "name": "Anvelop.HexGrid.Tests",
+  "rootNamespace": "Anvelop.HexGrid.Tests",
+  "references": ["Anvelop.HexGrid", "Unity.Mathematics", "Unity.Collections", "Unity.Burst"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}
