@@ -5,7 +5,7 @@ description: Use the com.anvelop.hexgrid Unity package to implement or extend he
 
 # Anvelop HexGrid
 
-Use the installed `com.anvelop.hexgrid` package rather than introducing a parallel hex coordinate system. Locate it at `Anvelop/HexGrid`, `Assets/Anvelop/HexGrid`, through the local dependency in `Packages/manifest.json`, or in Unity's resolved package cache. Read its `README.md` and the relevant `Runtime/*.cs` declarations before writing calls; source is authoritative for overloads and buffer sizes. Read `Documentation~/coverage.md` when deciding which operation matches a request.
+Use the installed `com.anvelop.hexgrid` package rather than introducing a parallel hex coordinate system. Locate it at the HexGrid repository root, through the dependency in `Packages/manifest.json`, in Unity's resolved package cache, or at `Assets/Anvelop/HexGrid` for a legacy import. Read its `README.md` and the relevant `Runtime/*.cs` declarations before writing calls; source is authoritative for overloads and buffer sizes. Read `Documentation~/coverage.md` when deciding which operation matches a request.
 
 ## Coordinate and layout rules
 

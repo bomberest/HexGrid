@@ -19,17 +19,17 @@ Icon
 
 ### Unity
 # Unity generated directories
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
-/[Mm]emory[Cc]aptures/
+/Development~/[Ll]ibrary/
+/Development~/[Tt]emp/
+/Development~/[Oo]bj/
+/Development~/[Bb]uild/
+/Development~/[Bb]uilds/
+/Development~/[Ll]ogs/
+/Development~/[Uu]ser[Ss]ettings/
+/Development~/[Mm]emory[Cc]aptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
+!/Development~/[Aa]ssets/**/*.meta
 
 # Build output
 *.apk
@@ -140,6 +140,8 @@ x86/
 *.nupkg
 **/[Pp]ackages/*
 !**/[Pp]ackages/build/
+!/Development~/Packages/manifest.json
+!/Development~/Packages/packages-lock.json
 
 # .NET build artifacts
 artifacts/

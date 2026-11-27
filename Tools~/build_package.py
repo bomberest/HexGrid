@@ -4,6 +4,7 @@ import argparse
 import gzip
 import io
 import json
+import os
 from pathlib import Path
 import re
 import tarfile
@@ -48,13 +49,16 @@ def build(root, output):
     stem = package['name'] + '-' + package['version']
     output.mkdir(parents=True, exist_ok=True)
     files = {}
-    for path in root.rglob('*'):
-        relative = path.relative_to(root)
-        if (not path.is_file() or path.is_relative_to(output)
-                or any(part.startswith('.') or part == '__pycache__' for part in relative.parts)
-                or path.suffix == '.pyc'):
-            continue
-        files[relative.as_posix()] = path.read_bytes()
+    development = root / 'Development~'
+    for directory, subdirs, filenames in os.walk(root):
+        current = Path(directory)
+        subdirs[:] = [name for name in subdirs
+                      if not name.startswith('.') and name != '__pycache__'
+                      and current / name not in (development, output)]
+        for name in filenames:
+            path = current / name
+            if path.is_file() and not name.startswith('.') and path.suffix != '.pyc':
+                files[path.relative_to(root).as_posix()] = path.read_bytes()
     upm = output / (stem + '.tgz')
     write_archive(upm, {'package/' + name: data for name, data in files.items()})
 

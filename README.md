@@ -8,19 +8,17 @@
 
 ## Установка
 
-Рекомендуемый способ переноса — архив `com.anvelop.hexgrid-1.0.1.tgz`: в Package Manager выберите **Install package from tarball**. Есть и архив `Anvelop.HexGrid-1.0.1.unitypackage`: он импортирует runtime в `Assets/Anvelop/HexGrid` и managed-примеры в `Assets/Anvelop/HexGrid/Samples/ManagedUsage`; до импорта установите зависимости Burst, Collections и Mathematics через Package Manager. Tests и sample **Burst jobs** поставляются в UPM-архиве и исходном каталоге. Выберите один способ установки, чтобы сборка пакета не дублировалась.
+В Unity откройте **Window → Package Manager → + → Install package from git URL** и вставьте:
 
-Скопируйте каталог `Anvelop/HexGrid` в другой проект и выберите **Window → Package Manager → + → Install package from disk**, затем его `package.json`. Для структуры `<project>/Anvelop/HexGrid` зависимость в `<project>/Packages/manifest.json` выглядит так:
-
-```json
-{
-  "dependencies": {
-    "com.anvelop.hexgrid": "file:../Anvelop/HexGrid"
-  }
-}
+```text
+https://github.com/bomberest/HexGrid.git
 ```
 
-Минимальная заявленная версия Unity — **2022.3**; проверка в этом проекте выполняется на **6000.6.0f1**. Зависимости: Burst **1.8.25**, Collections **2.4.3**, Mathematics **1.3.2**. Сохраните остальные зависимости проекта. Для кода из собственной `.asmdef` добавьте ссылку на `Anvelop.HexGrid` и нужные сборки Unity. Совместимость с другими Editor/платформами требует запуска тестов в целевом проекте.
+Для локальной копии выберите **Install package from disk** и укажите `package.json` в корне репозитория. Для архива `com.anvelop.hexgrid-1.0.1.tgz` выберите **Install package from tarball**.
+
+Архив `Anvelop.HexGrid-1.0.1.unitypackage` импортирует runtime в `Assets/Anvelop/HexGrid` и managed-примеры в `Assets/Anvelop/HexGrid/Samples/ManagedUsage`. До импорта установите зависимости Burst, Collections и Mathematics через Package Manager. Пакетные тесты и пример **Burst jobs** доступны при установке через UPM. Выберите один способ установки, чтобы сборка пакета не дублировалась.
+
+Минимальная заявленная версия Unity — **2022.3**. Зависимости: Burst **1.8.25**, Collections **2.4.3**, Mathematics **1.3.2**. Для кода из собственной `.asmdef` добавьте ссылку на `Anvelop.HexGrid` и нужные сборки Unity.
 
 ## Обычный C# и MonoBehaviour
 
@@ -166,6 +164,8 @@ public struct DistanceJob : IJobParallelFor
 
 ## Проверки и skill
 
+Для работы над пакетом откройте [Development~](Development~) как проект Unity. Он подключает пакет из корня репозитория.
+
 Чтобы пакетные EditMode-тесты появились в Unity Test Runner, добавьте в корень манифеста проекта:
 
 ```json
@@ -183,5 +183,5 @@ Skill поставляется в [Skills~/anvelop-hexgrid/SKILL.md](Skills~/anv
 Архивы собираются стандартным Python без внешних зависимостей:
 
 ```sh
-python3 Anvelop/HexGrid/Tools~/build_package.py --output Artifacts
+python3 Tools~/build_package.py --output Development~/Artifacts
 ```
